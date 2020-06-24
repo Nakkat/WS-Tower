@@ -13,6 +13,7 @@ namespace WSTower.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class LoginController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -21,12 +22,21 @@ namespace WSTower.API.Controllers
         {
             _usuarioRepository = new UsuarioRepository();
         }
+
         [HttpPost]
         public IActionResult Login(LoginViewModel Dadoslogin)
         {
-            _usuarioRepository.Login(Dadoslogin);
+           Usuario dados = _usuarioRepository.Login(Dadoslogin);
             //corrigir caso for usar token
-            return StatusCode(200);
+            if (dados == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return StatusCode(200);
+                
+            }
         }
     }
 }

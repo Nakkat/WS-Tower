@@ -16,7 +16,7 @@ namespace WSTower.API.Domains
         [Required(ErrorMessage = "O Apelido do usuário é obrigatória")]
         [StringLength(30, MinimumLength = 3, ErrorMessage = "O Apelido deve conter entre 3 e 30 caracteres.")]
         public string Apelido { get; set; }
-        [Required(ErrorMessage = "A Foto do usuario é obrigatória")]
+        //[Required(ErrorMessage = "A Foto do usuario é obrigatória")]
         public byte[] Foto { get; set; }
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "A Senha do usuário é obrigatória")]

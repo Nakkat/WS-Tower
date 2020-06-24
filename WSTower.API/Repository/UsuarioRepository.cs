@@ -25,6 +25,11 @@ namespace WSTower.API.Repository
             return false;
         }
 
+        public List<Usuario> ListarUsuarios()
+        {
+            return _context.Usuario.ToList();
+        }
+
         public Usuario Login(LoginViewModel login)
         {
             return _context.Usuario.FirstOrDefault(u => u.Email == login.Usuario && u.Senha == login.Senha || u.Apelido == login.Usuario && u.Senha == login.Senha);

@@ -12,6 +12,7 @@ namespace WSTower.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Produces("application/json")]
     public class UsuariosController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
@@ -20,6 +21,13 @@ namespace WSTower.API.Controllers
         {
             _usuarioRepository = new UsuarioRepository();
         }
+
+        [HttpGet]
+        public IActionResult Buscar()
+        {
+            return Ok(_usuarioRepository.ListarUsuarios());
+        }
+
         [HttpPost]
         public IActionResult Cadastro(Usuario novoUsuario)
         {

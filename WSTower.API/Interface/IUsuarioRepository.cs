@@ -12,5 +12,7 @@ namespace WSTower.API.Interface
         public Usuario Login(LoginViewModel login);
 
         public bool Cadastro(Usuario NovoUsuario);
+
+        public List<Usuario> ListarUsuarios();
     }
 }
