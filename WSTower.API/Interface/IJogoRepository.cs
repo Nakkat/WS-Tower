@@ -9,5 +9,15 @@ namespace WSTower.API.Interface
     interface IJogoRepository
     {
         public List<Jogo> ListarJogos();
+
+        public List<Jogo> ListarPorOrdemDeData();
+
+        public List<Jogo> ListarPorData(DateTime data);
+
+        public List<Jogo> ListarPorEstadio(string estadio);
+
+        public List<Jogo> ListarPorSelecao(string selecao);
+
+        public List<DateTime> ListaDeDatas();
     }
 }

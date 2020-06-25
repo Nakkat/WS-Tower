@@ -13,11 +13,11 @@ namespace WSTower.API.Controllers
     [ApiController]
     public class PrincipalController : ControllerBase
     {
-        private IPrincipalRepository _principalRepository { get; set; }
+        private IJogoRepository _jogoRepository { get; set; }
 
         public PrincipalController()
         {
-            _principalRepository = new PrincipalRepository();
+            _jogoRepository = new JogoRepository();
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace WSTower.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_principalRepository.Listar());
+            return Ok(_jogoRepository.ListarPorOrdemDeData());
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace WSTower.API.Controllers
         [HttpGet("BuscarPorData/{data}")]
         public IActionResult GetByDate(DateTime data)
         {
-            return Ok(_principalRepository.ListarPorData(data));
+            return Ok(_jogoRepository.ListarPorData(data));
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace WSTower.API.Controllers
         [HttpGet("BuscarPorEstadio/{estadio}")]
         public IActionResult GetByStadium(string estadio)
         {
-            return Ok(_principalRepository.ListarPorEstadio(estadio));
+            return Ok(_jogoRepository.ListarPorEstadio(estadio));
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace WSTower.API.Controllers
         [HttpGet("BuscarPorSelecao/{selecao}")]
         public IActionResult GetByTeam(string selecao)
         {
-            return Ok(_principalRepository.ListarPorSelecao(selecao));
+            return Ok(_jogoRepository.ListarPorSelecao(selecao));
         }
     }
 }

@@ -17,5 +17,40 @@ namespace WSTower.API.Repository
         {
              return _context.Jogo.Include(sc => sc.SelecaoCasaNavigation).Include(sv => sv.SelecaoVisitanteNavigation).ToList();
         }
+
+        public List<Jogo> ListarPorOrdemDeData()
+        {
+            return _context.Jogo.OrderBy(j => j.Data).ToList();
+        }
+
+        public List<Jogo> ListarPorData(DateTime data)
+        {
+            return _context.Jogo.ToList().FindAll(j => j.Data == data);
+        }
+
+        public List<Jogo> ListarPorEstadio(string estadio)
+        {
+            return _context.Jogo.ToList().FindAll(j => j.Estadio == estadio);
+        }
+
+        public List<Jogo> ListarPorSelecao(string selecao)
+        {
+            return _context.Jogo.ToList().FindAll(j => j.SelecaoCasaNavigation.Nome == selecao
+                                            || j.SelecaoVisitanteNavigation.Nome == selecao);
+        }
+
+        public List<DateTime> ListaDeDatas()
+        {
+            List<DateTime> datas = new List<DateTime>();
+
+            for (int i = 0; i < ListarJogos().Count; i++)
+            {
+                Jogo jogo = new Jogo();
+                DateTime data = jogo.Data.Value;
+                datas.Add(data);
+            }
+
+            return datas;
+        }
     }
 }
