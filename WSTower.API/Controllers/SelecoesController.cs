@@ -14,11 +14,19 @@ namespace WSTower.API.Controllers
     [Produces("application/json")]
     public class SelecoesController : ControllerBase
     {
+
         private ISelecaoRepository _selecaoRepository { get; set; }
 
         public SelecoesController()
         {
             _selecaoRepository = new SelecaoRepository();
         }
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(_selecaoRepository.ListarSelecao());
+          
+        }
     }
 }
+

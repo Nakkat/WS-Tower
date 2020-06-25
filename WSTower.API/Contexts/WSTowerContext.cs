@@ -20,12 +20,13 @@ namespace WSTower.API.Contexts
         public virtual DbSet<Jogo> Jogo { get; set; }
         public virtual DbSet<Selecao> Selecao { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=BRUNO-PC; Initial Catalog=Campeonato; Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=LAPTOP-HB597BA2\\SQLEXPRESS; Initial Catalog=Campeonato; Integrated Security=True");
             }
         }
 
