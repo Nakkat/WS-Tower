@@ -26,7 +26,7 @@ namespace WSTower.API.Contexts
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=LAPTOP-HB597BA2\\SQLEXPRESS; Initial Catalog=Campeonato; Integrated Security=True");
+                optionsBuilder.UseSqlServer("Data Source=BRUNO-PC; Initial Catalog=Campeonato; Integrated Security=True");
             }
         }
 

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WSTower.API</name>
+    </assembly>
+    <members>
+        <member name="M:WSTower.API.Controllers.PrincipalController.Get">
+            <summary>
+            Busca todos os confrontos por ordem de data
+            </summary>
+            <returns> Uma lista de jogos e um status code 200 - Ok </returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.PrincipalController.GetByDate(System.DateTime)">
+            <summary>
+            Busca todos os confrontos por data
+            </summary>
+            <param name="data"> Data dos confrontos a ser buscado </param>
+            <returns> Uma lista de jogos e um status code 200 - Ok </returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.PrincipalController.GetByStadium(System.String)">
+            <summary>
+            Busca todos os jogos por estádio
+            </summary>
+            <param name="estadio"> Nome do estádio dos confrontos a ser buscado </param>
+            <returns> Uma lista de jogos e um status code 200 - Ok </returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.PrincipalController.GetByTeam(System.String)">
+            <summary>
+            Busca todos os jogos por seleção
+            </summary>
+            <param name="selecao"> Nome da seleção dos confrontos a ser buscado </param>
+            <returns> Uma lista de jogos e um status code 200 - Ok </returns>
+        </member>
+    </members>
+</doc>

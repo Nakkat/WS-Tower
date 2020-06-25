@@ -26,13 +26,11 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:5000/api/usuarios",
+							"raw": "{{URL}}/usuarios",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"api",
 								"usuarios"
 							]
 						}
@@ -79,14 +77,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5000/api/jogos",
+							"raw": "{{URL}}/Jogos",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"api",
-								"jogos"
+								"Jogos"
 							]
 						}
 					},
@@ -104,13 +100,11 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:5000/api/jogadores",
+							"raw": "{{URL}}/jogadores",
 							"host": [
-								"localhost"
+								"{{URL}}"
 							],
-							"port": "5000",
 							"path": [
-								"api",
 								"jogadores"
 							]
 						}
@@ -123,6 +117,121 @@
 		{
 			"name": "Selecoes",
 			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"email\": \"a@.com\",\r\n        \"senha\": \"cde\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tela Principal",
+			"item": [
+				{
+					"name": "Listar jogos por ordem de data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Principal",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Principal"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar jogos por data",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Principal/BuscarPorData/2020-02-02",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Principal",
+								"BuscarPorData",
+								"2020-02-02"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar jogos por estádio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Principal/BuscarPorEstadio/A",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Principal",
+								"BuscarPorEstadio",
+								"A"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar jogos por seleção",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Principal/BuscarPorSelecao/Alemanha",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Principal",
+								"BuscarPorSelecao",
+								"Alemanha"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		}
 	],

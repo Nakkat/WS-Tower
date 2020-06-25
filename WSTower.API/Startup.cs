@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace WSTower.API
 {
@@ -20,7 +21,20 @@ namespace WSTower.API
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.AddControllers();
+
+            
+            //.AddJsonOptions(options =>
+            // {
+            //     // Ignora valores nulos ao fazer junções nas consultas
+            //     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+            //     // Ignora os loopings nas consultas
+            //     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            // });
+
+
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Senai.Peoples.WebApi", Version = "v1" });
