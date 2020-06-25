@@ -16,5 +16,10 @@ namespace WSTower.API.Repository
         {
             return _context.Jogador.ToList();
         }
+
+        public List<Jogador> ListarJogadoresOrdenados()
+        {
+            return _context.Jogador.OrderBy(j => j.NumeroCamisa).OrderBy(j => j.Posicao).ToList();
+        }
     }
 }

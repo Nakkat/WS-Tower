@@ -9,5 +9,7 @@ namespace WSTower.API.Interface
     interface IJogadorRepository
     {
         public List<Jogador> ListarJogadores();
+
+        public List<Jogador> ListarJogadoresOrdenados();
     }
 }

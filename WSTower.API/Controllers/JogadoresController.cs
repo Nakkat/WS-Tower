@@ -32,5 +32,11 @@ namespace WSTower.API.Controllers
                 return BadRequest(erro);
             }
         }
+
+        [HttpGet("Ordem")]
+        public IActionResult ListarJogadoresPorOrdem()
+        {
+            return Ok(_jogadorRepository.ListarJogadoresOrdenados());
+        }
     }
 }

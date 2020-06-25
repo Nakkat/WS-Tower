@@ -110,6 +110,24 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Buscar jogadores ordenados por camisa e posição",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/jogadores/ordem",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jogadores",
+								"ordem"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
