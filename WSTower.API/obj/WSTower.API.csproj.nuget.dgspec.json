@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\maria\\Desktop\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {}
+    "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\maria\\Desktop\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {
+    "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\maria\\Desktop\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
+        "projectUniqueName": "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
         "projectName": "WSTower.API",
-        "projectPath": "C:\\Users\\maria\\Desktop\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
-        "packagesPath": "C:\\Users\\maria\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\maria\\Desktop\\WS-Tower\\WSTower.API\\obj\\",
+        "projectPath": "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
+        "packagesPath": "C:\\Users\\Bruno\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\maria\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -42,6 +42,10 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.5, )"
@@ -55,6 +59,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.5, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[5.5.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.6.0, )"
             }
           },
           "imports": [

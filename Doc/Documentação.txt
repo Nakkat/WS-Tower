@@ -1,0 +1,8 @@
+Dicionário de dados em formato
+Excel
+
+Documentação de api
+em formato Swagger
+
+E Login feito
+com JWt Token

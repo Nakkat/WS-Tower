@@ -1,12 +1,16 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 
 namespace WSTower.API
 {
@@ -17,6 +21,52 @@ namespace WSTower.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Senai.Peoples.WebApi", Version = "v1" });
+
+                // Set the comments path for the Swagger JSON and UI.
+                var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                c.IncludeXmlComments(xmlPath);
+            });
+
+
+            services
+                // Define a forma de autenticação
+                .AddAuthentication(options =>
+                {
+                    options.DefaultAuthenticateScheme = "JwtBearer";
+                    options.DefaultChallengeScheme = "JwtBearer";
+                })
+
+                // Define os parâmetros de validação do token
+                .AddJwtBearer("JwtBearer", options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        // Quem está solicitando
+                        ValidateIssuer = true,
+
+                        // Quem está validando
+                        ValidateAudience = true,
+
+                        // Definindo o tempo de expiração
+                        ValidateLifetime = true,
+
+                        // Forma de criptografia
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("peoples-chave-autenticacao")),
+
+                        // Tempo de expiração do token
+                        ClockSkew = TimeSpan.FromMinutes(30),
+
+                        // Nome da issuer, de onde está vindo
+                        ValidIssuer = "WSTower.API",
+
+                        // Nome da audience, de onde está vindo
+                        ValidAudience = "WSTower.API"
+                    };
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,12 +77,31 @@ namespace WSTower.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseRouting();
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
 
-            app.UseEndpoints(endpoints =>
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
             {
-                endpoints.MapControllers();
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Senai.Peoples.WebApi");
+                c.RoutePrefix = string.Empty;
+                if (env.IsDevelopment())
+                {
+                    app.UseDeveloperExceptionPage();
+                }
+
+                app.UseRouting();
+
+                app.UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllers();
+                });
             });
+
+            // Habilita o uso de autenticação
+            app.UseAuthentication();
         }
     }
 }
+
