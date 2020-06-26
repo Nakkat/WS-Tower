@@ -62,6 +62,13 @@
             </summary>
             <returns> Uma lista de datas de jogos e um status code 200 - Ok </returns>
         </member>
+        <member name="M:WSTower.API.Controllers.LoginController.Login(WSTower.API.ViewModel.LoginViewModel)">
+            <summary>
+            Faz o login do usuário
+            </summary>
+            <param name="loginViewModel">recebe o email ou apelido e senha do usuário</param>
+            <returns>retorna o token do usuário</returns>
+        </member>
         <member name="M:WSTower.API.Controllers.UsuariosController.Buscar(System.Int32)">
             <summary>
             Busca um usuário referente ao id informado na url
@@ -69,7 +76,7 @@
             <param name="id"></param>
             <returns>o usuário encontrado</returns>
         </member>
-        <member name="M:WSTower.API.Controllers.UsuariosController.Editar(System.Int32,WSTower.API.Domains.Usuario)">
+        <member name="M:WSTower.API.Controllers.UsuariosController.Editar(System.Int32,WSTower.API.ViewModel.UsuarioViewModel)">
             <summary>
             Edita um usuário já existente
             </summary>

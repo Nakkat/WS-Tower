@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using WSTower.API.Domains;
 using WSTower.API.Interface;
 using WSTower.API.Repository;
+using WSTower.API.ViewModel;
 
 namespace WSTower.API.Controllers
 {
@@ -45,7 +46,7 @@ namespace WSTower.API.Controllers
         /// <param name="id">Id do usuário a ser editado</param>
         /// <returns>statuscode 204, que informa que a solicitação foi bem sucedida</returns>
         [HttpPut("{id}")]
-        public IActionResult Editar(int id, Usuario novosDados)
+        public IActionResult Editar(int id, UsuarioViewModel novosDados)
         {
             try
             {

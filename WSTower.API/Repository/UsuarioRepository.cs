@@ -31,7 +31,7 @@ namespace WSTower.API.Repository
             return false;
         }
 
-        public void Editar(Usuario NovosDados)
+        public void Editar(UsuarioViewModel NovosDados)
         {
             Usuario DadosAntigos = BuscarPorId(NovosDados.Id);
             if (NovosDados.Nome != null)
@@ -65,7 +65,7 @@ namespace WSTower.API.Repository
 
         public Usuario Login(LoginViewModel loginViewModel)
         {
-             return _context.Usuario.FirstOrDefault(u => loginViewModel.Usuario == u.Email  || loginViewModel.Usuario == u.Apelido && loginViewModel.Senha == u.Senha);
+             return _context.Usuario.FirstOrDefault(u =>  u.Email == loginViewModel.Usuario && u.Senha == loginViewModel.Senha || u.Apelido == loginViewModel.Usuario && u.Senha == loginViewModel.Senha);
         }
     }
 }

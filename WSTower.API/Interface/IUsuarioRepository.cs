@@ -15,7 +15,7 @@ namespace WSTower.API.Interface
 
         public List<Usuario> ListarUsuarios();
 
-        public void Editar(Usuario NovosDados);
+        public void Editar(UsuarioViewModel NovosDados);
 
         public Usuario BuscarPorId(int id);
     }
