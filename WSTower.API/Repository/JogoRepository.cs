@@ -39,9 +39,9 @@ namespace WSTower.API.Repository
             return _context.Jogo.ToList().FindAll(j => j.Estadio == estadio);
         }
 
-        public List<Jogo> ListarPorSelecao(string selecao)
+        public Selecao ListarPorSelecao(string selecao)
         {
-            return _context.Jogo.ToList().FindAll(j => j.SelecaoCasaNavigation.Nome == selecao || j.SelecaoVisitanteNavigation.Nome == selecao);
+            return _context.Selecao.Include(s => s.JogoSelecaoCasaNavigation).Include(s => s.JogoSelecaoVisitanteNavigation).FirstOrDefault(s => s.Nome == selecao);
         }
     }
 }

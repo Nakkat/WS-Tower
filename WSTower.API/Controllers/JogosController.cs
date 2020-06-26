@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using WSTower.API.Domains;
 using WSTower.API.Interface;
 using WSTower.API.Repository;
+using WSTower.API.ViewModel;
 
 namespace WSTower.API.Controllers
 {
@@ -62,10 +63,10 @@ namespace WSTower.API.Controllers
         /// </summary>
         /// <param name="estadio"> Nome do estádio dos confrontos a ser buscado </param>
         /// <returns> Uma lista de jogos e um status code 200 - Ok </returns>
-        [HttpGet("BuscarPorEstadio/{estadio}")]
-        public IActionResult GetByStadium(string estadio)
+        [HttpGet("BuscarPorEstadio")]
+        public IActionResult GetByStadium(StringViewModel estadio)
         {
-            List<Jogo> jogosBuscado = _jogoRepository.ListarPorEstadio(estadio);
+            List<Jogo> jogosBuscado = _jogoRepository.ListarPorEstadio(estadio.Nome);
 
             if (jogosBuscado.Count == 0)
             {
@@ -80,17 +81,18 @@ namespace WSTower.API.Controllers
         /// </summary>
         /// <param name="selecao"> Nome da seleção dos confrontos a ser buscado </param>
         /// <returns> Uma lista de jogos e um status code 200 - Ok </returns>
-        [HttpGet("BuscarPorSelecao/{selecao}")]
-        public IActionResult GetByTeam(string selecao)
+        [HttpGet("BuscarPorSelecao")]
+        public IActionResult GetByTeam(StringViewModel selecao)
         {
-            List<Jogo> jogosBuscado = _jogoRepository.ListarPorSelecao(selecao);
+            // retorna uma seleção e desta seleção é retirada uma lista de jogos
+            Selecao jogosBuscado = _jogoRepository.ListarPorSelecao(selecao.Nome);
 
-            if (jogosBuscado.Count == 0)
+            if (jogosBuscado.JogoSelecaoCasaNavigation != null || jogosBuscado.JogoSelecaoVisitanteNavigation != null)
             {
-                return NotFound("Nenhum jogo encontrado para a seleção buscada");
+                return Ok(jogosBuscado);
+                
             }
-
-            return Ok(jogosBuscado);
+            return NotFound("Nenhum jogo encontrado para a seleção buscada");
         }
 
         /// <summary>

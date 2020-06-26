@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {}
+    "C:\\Users\\HENRIQUE\\Desktop\\trabalho em grupo\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {
+    "C:\\Users\\HENRIQUE\\Desktop\\trabalho em grupo\\WS-Tower\\WSTower.API\\WSTower.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
+        "projectUniqueName": "C:\\Users\\HENRIQUE\\Desktop\\trabalho em grupo\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
         "projectName": "WSTower.API",
-        "projectPath": "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
-        "packagesPath": "C:\\Users\\Bruno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bruno\\Desktop\\Bruno\\Desenvolvimento de Sistemas\\GitHub\\Senai\\Técnico - Senai\\Senai - EAD\\C#\\WS-Tower\\WSTower.API\\obj\\",
+        "projectPath": "C:\\Users\\HENRIQUE\\Desktop\\trabalho em grupo\\WS-Tower\\WSTower.API\\WSTower.API.csproj",
+        "packagesPath": "C:\\Users\\HENRIQUE\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\HENRIQUE\\Desktop\\trabalho em grupo\\WS-Tower\\WSTower.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Bruno\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\HENRIQUE\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],

@@ -14,7 +14,7 @@ namespace WSTower.API.Interface
 
         public List<Jogo> ListarPorEstadio(string estadio);
 
-        public List<Jogo> ListarPorSelecao(string selecao);
+        public Selecao ListarPorSelecao(string selecao);
 
         public List<DateTime> ListaDeDatas();
     }

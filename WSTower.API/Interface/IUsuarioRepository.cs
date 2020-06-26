@@ -14,5 +14,9 @@ namespace WSTower.API.Interface
         public bool Cadastro(Usuario NovoUsuario);
 
         public List<Usuario> ListarUsuarios();
+
+        public void Editar(Usuario NovosDados);
+
+        public Usuario BuscarPorId(int id);
     }
 }

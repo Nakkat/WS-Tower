@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6c39699e-d477-461e-9940-51e2997198c6",
+		"_postman_id": "a796a0fe-41ab-4f33-af26-9dae16bed10a",
 		"name": "WS Tower",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,7 +9,7 @@
 			"name": "Usuarios",
 			"item": [
 				{
-					"name": "Buscar usuários",
+					"name": "Listar usuários",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -61,6 +61,17 @@
 								"api",
 								"usuarios"
 							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar Usuário",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
 						}
 					},
 					"response": []
@@ -271,7 +282,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4163efee-64b3-4aec-905d-5cf695c20902",
+						"id": "0a193af1-ec3f-410e-b78b-3bc13cb0077f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -281,7 +292,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0d9c8b2d-0c8a-4ab1-af0b-b9f45272b9d7",
+						"id": "fb78067d-c3a0-4543-a275-830bceea0f92",
 						"type": "text/javascript",
 						"exec": [
 							""

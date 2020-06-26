@@ -29,6 +29,12 @@
             </summary>
             <returns>Retorna uma lista de jogadores ordenados por nome</returns>
         </member>
+        <member name="M:WSTower.API.Controllers.JogosController.Get">
+            <summary>
+            Busca todos os confrontos por ordem de datas
+            </summary>
+            <returns> Uma lista de jogos e um status code 200 - Ok </returns>
+        </member>
         <member name="M:WSTower.API.Controllers.JogosController.GetByDate(System.DateTime)">
             <summary>
             Busca todos os confrontos por data
@@ -36,19 +42,53 @@
             <param name="data"> Data dos confrontos a ser buscado </param>
             <returns> Uma lista de jogos e um status code 200 - Ok </returns>
         </member>
-        <member name="M:WSTower.API.Controllers.JogosController.GetByStadium(System.String)">
+        <member name="M:WSTower.API.Controllers.JogosController.GetByStadium(WSTower.API.ViewModel.StringViewModel)">
             <summary>
             Busca todos os jogos por estádio
             </summary>
             <param name="estadio"> Nome do estádio dos confrontos a ser buscado </param>
             <returns> Uma lista de jogos e um status code 200 - Ok </returns>
         </member>
-        <member name="M:WSTower.API.Controllers.JogosController.GetByTeam(System.String)">
+        <member name="M:WSTower.API.Controllers.JogosController.GetByTeam(WSTower.API.ViewModel.StringViewModel)">
             <summary>
             Busca todos os jogos por seleção
             </summary>
             <param name="selecao"> Nome da seleção dos confrontos a ser buscado </param>
             <returns> Uma lista de jogos e um status code 200 - Ok </returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.JogosController.listarDatas">
+            <summary>
+            Busca todas as datas dos jogos
+            </summary>
+            <returns> Uma lista de datas de jogos e um status code 200 - Ok </returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.UsuariosController.Buscar(System.Int32)">
+            <summary>
+            Busca um usuário referente ao id informado na url
+            </summary>
+            <param name="id"></param>
+            <returns>o usuário encontrado</returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.UsuariosController.Editar(System.Int32,WSTower.API.Domains.Usuario)">
+            <summary>
+            Edita um usuário já existente
+            </summary>
+            <param name="novosDados">novos dados do usuário</param>
+            <param name="id">Id do usuário a ser editado</param>
+            <returns>statuscode 204, que informa que a solicitação foi bem sucedida</returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.UsuariosController.Listar">
+            <summary>
+            Lista todos os usuários
+            </summary>
+            <returns>Uma lista de usuários</returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.UsuariosController.Cadastro(WSTower.API.Domains.Usuario)">
+            <summary>
+            Cadastra um novo usuário
+            </summary>
+            <param name="novoUsuario">dados do novo usuário</param>
+            <returns>que o usuário foi criado com sucesso</returns>
         </member>
     </members>
 </doc>
