@@ -4,6 +4,31 @@
         <name>WSTower.API</name>
     </assembly>
     <members>
+        <member name="M:WSTower.API.Controllers.JogadoresController.Get">
+            <summary>
+            Lista de jogadores
+            </summary>
+            <returns>Retorna uma lista de jogadores</returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.JogadoresController.ListarJogadoresPorOrdem">
+            <summary>
+            Lista de jogadores ordenadas
+            </summary>
+            <returns>Retorna uma lista de jogadores ordenadas por posição e nº de camisa</returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.JogadoresController.ListarJogadoresPorSelecao(System.Int32)">
+            <summary>
+            Lista de jogadores ordenados
+            </summary>
+            <param name="id">Id da seleção que será buscado</param>
+            <returns>Retorna uma lista de jogadores por seleção</returns>
+        </member>
+        <member name="M:WSTower.API.Controllers.JogadoresController.ListarJogadoresPorNome(System.String)">
+            <summary>
+            Lista de jogadores ordenados
+            </summary>
+            <returns>Retorna uma lista de jogadores ordenados por nome</returns>
+        </member>
         <member name="M:WSTower.API.Controllers.JogosController.GetByDate(System.DateTime)">
             <summary>
             Busca todos os confrontos por data

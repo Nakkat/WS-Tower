@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1175450d-ab7f-4ae9-bd0c-3f3b8a793d2e",
+		"_postman_id": "42ba4478-2278-4085-8de2-61fd054b60c8",
 		"name": "WS Tower",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -199,6 +199,17 @@
 				},
 				{
 					"name": "Buscar jogadores por seleção",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar jogadores por nome",
 					"request": {
 						"method": "GET",
 						"header": [],

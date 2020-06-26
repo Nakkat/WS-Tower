@@ -20,6 +20,11 @@ namespace WSTower.API.Controllers
         {
             _jogadorRepository = new JogadorRepository();
         }
+
+        /// <summary>
+        /// Lista de jogadores
+        /// </summary>
+        /// <returns>Retorna uma lista de jogadores</returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -33,15 +38,35 @@ namespace WSTower.API.Controllers
             }
         }
 
+        /// <summary>
+        /// Lista de jogadores ordenadas
+        /// </summary>
+        /// <returns>Retorna uma lista de jogadores ordenadas por posição e nº de camisa</returns>
         [HttpGet("Ordem")]
         public IActionResult ListarJogadoresPorOrdem()
         {
             return Ok(_jogadorRepository.ListarJogadoresOrdenados());
         }
+
+        /// <summary>
+        /// Lista de jogadores ordenados
+        /// </summary>
+        /// <param name="id">Id da seleção que será buscado</param>
+        /// <returns>Retorna uma lista de jogadores por seleção</returns>
         [HttpGet("Selecao/{id}")]
         public IActionResult ListarJogadoresPorSelecao(int id)
         {
             return Ok(_jogadorRepository.ListarJogadoresporSelecao(id));
+        }
+
+        /// <summary>
+        /// Lista de jogadores ordenados
+        /// </summary>
+        /// <returns>Retorna uma lista de jogadores ordenados por nome</returns>
+        [HttpGet("Nome/{nome}")]
+        public IActionResult ListarJogadoresPorNome(string nome)
+        {
+            return Ok(_jogadorRepository.ListarJogadoresPorNome(nome));
         }
     }
 }

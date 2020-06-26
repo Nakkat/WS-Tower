@@ -22,9 +22,24 @@ namespace WSTower.API.Repository
             return _context.Jogador.OrderBy(j => j.NumeroCamisa).OrderBy(j => j.Posicao).ToList();
         }
 
+        public List<Jogador> ListarJogadoresPorNome(string nome)
+        {
+            return _context.Jogador.ToList().FindAll(j => j.Nome == nome);
+        }
+
         public Selecao ListarJogadoresporSelecao(int IdSelecao)
         {
-            return _context.Selecao.Include(s => s.Jogador).FirstOrDefault(s => s.Id == IdSelecao);
+            return _context.Selecao.Select(s => new Selecao()
+            {
+                Id = s.Id,
+                Jogador  = s.Jogador
+            }).Include(s => s.Jogador).FirstOrDefault(s => s.Id == IdSelecao);
         }
     }
 }
+
+        
+    
+        
+   
+
