@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using WSTower.API.Domains;
 using WSTower.API.Interface;
 using WSTower.API.Repository;
 
@@ -11,6 +12,7 @@ namespace WSTower.API.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
+    
     public class JogosController : ControllerBase
     {
         private IJogoRepository _jogoRepository { get; set; }
@@ -20,6 +22,10 @@ namespace WSTower.API.Controllers
             _jogoRepository = new JogoRepository();
         }
 
+        /// <summary>
+        /// Busca todos os confrontos por ordem de datas
+        /// </summary>
+        /// <returns> Uma lista de jogos e um status code 200 - Ok </returns>
         [HttpGet]
         public IActionResult Get()
         {
@@ -41,7 +47,14 @@ namespace WSTower.API.Controllers
         [HttpGet("BuscarPorData/{data}")]
         public IActionResult GetByDate(DateTime data)
         {
-            return Ok(_jogoRepository.ListarPorData(data));
+            try
+            {
+                return Ok(_jogoRepository.ListarPorData(data));
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
         }
 
         /// <summary>
@@ -52,7 +65,14 @@ namespace WSTower.API.Controllers
         [HttpGet("BuscarPorEstadio/{estadio}")]
         public IActionResult GetByStadium(string estadio)
         {
-            return Ok(_jogoRepository.ListarPorEstadio(estadio));
+            List<Jogo> jogosBuscado = _jogoRepository.ListarPorEstadio(estadio);
+
+            if (jogosBuscado.Count == 0)
+            {
+                return NotFound("Nenhum jogo encontrado para o estádio buscado");
+            }
+
+            return Ok(jogosBuscado);
         }
 
         /// <summary>
@@ -63,9 +83,21 @@ namespace WSTower.API.Controllers
         [HttpGet("BuscarPorSelecao/{selecao}")]
         public IActionResult GetByTeam(string selecao)
         {
-            return Ok(_jogoRepository.ListarPorSelecao(selecao));
+            List<Jogo> jogosBuscado = _jogoRepository.ListarPorSelecao(selecao);
+
+            if (jogosBuscado.Count == 0)
+            {
+                return NotFound("Nenhum jogo encontrado para a seleção buscada");
+            }
+
+            return Ok(jogosBuscado);
         }
-        [HttpGet("data")]
+
+        /// <summary>
+        /// Busca todas as datas dos jogos
+        /// </summary>
+        /// <returns> Uma lista de datas de jogos e um status code 200 - Ok </returns>
+        [HttpGet("Datas")]
         public IActionResult listarDatas()
         {
             return Ok(_jogoRepository.ListaDeDatas());

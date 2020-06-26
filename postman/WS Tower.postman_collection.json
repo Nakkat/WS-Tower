@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "42ba4478-2278-4085-8de2-61fd054b60c8",
+		"_postman_id": "6c39699e-d477-461e-9940-51e2997198c6",
 		"name": "WS Tower",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -61,97 +61,6 @@
 								"api",
 								"usuarios"
 							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Jogos",
-			"item": [
-				{
-					"name": "Listar jogos por ordem de data",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/Principal",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"Principal"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar jogos por data",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/Principal/BuscarPorData/2020-02-02",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"Principal",
-								"BuscarPorData",
-								"2020-02-02"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar jogos por estádio",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/Principal/BuscarPorEstadio/A",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"Principal",
-								"BuscarPorEstadio",
-								"A"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar jogos por seleção",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/Principal/BuscarPorSelecao/Alemanha",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"Principal",
-								"BuscarPorSelecao",
-								"Alemanha"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Listar Datas",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": ""
 						}
 					},
 					"response": []
@@ -258,6 +167,126 @@
 						}
 					},
 					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jogos",
+			"item": [
+				{
+					"name": "Jogos.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jogos.BuscarPorData",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos/BuscarPorData/2020-07-18",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"BuscarPorData",
+								"2020-07-18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jogos.BuscarPorEstadio",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos/BuscarPorEstadio/Maracana",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"BuscarPorEstadio",
+								"Maracana"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jogos.BuscarPorSelecao",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos/BuscarPorSelecao/Alemanha",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"BuscarPorSelecao",
+								"Alemanha"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Jogos.ListarDatas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/Jogos/data",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"Jogos",
+								"data"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4163efee-64b3-4aec-905d-5cf695c20902",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "0d9c8b2d-0c8a-4ab1-af0b-b9f45272b9d7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			],
 			"protocolProfileBehavior": {}
