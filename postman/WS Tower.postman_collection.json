@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a796a0fe-41ab-4f33-af26-9dae16bed10a",
+		"_postman_id": "4b11340d-9b4d-4f9d-9b8e-32db61e406d3",
 		"name": "WS Tower",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -71,18 +71,44 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{URL}}/usuarios/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
 						}
 					},
 					"response": []
 				},
 				{
 					"name": "Editar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"abcd\",\r\n        \"email\": \"as@.com\",\r\n        \"apelido\": \"bdea\",\r\n        \"senha\": \"cdea\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": ""
+							"raw": "{{URL}}/usuarios/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"usuarios",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -134,7 +160,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{URL}}/jogadores/selecao/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jogadores",
+								"selecao",
+								"1"
+							]
 						}
 					},
 					"response": []
@@ -145,7 +179,15 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": ""
+							"raw": "{{URL}}/jogadores/Nome/Manuel Neuer",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jogadores",
+								"Nome",
+								"Manuel Neuer"
+							]
 						}
 					},
 					"response": []
@@ -155,7 +197,25 @@
 		},
 		{
 			"name": "Selecoes",
-			"item": [],
+			"item": [
+				{
+					"name": "Selecoes.Listar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/selecoes",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"selecoes"
+							]
+						}
+					},
+					"response": []
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
@@ -234,18 +294,29 @@
 				},
 				{
 					"name": "Jogos.BuscarPorEstadio",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Arena Amazônia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{URL}}/Jogos/BuscarPorEstadio/Maracana",
+							"raw": "{{URL}}/Jogos/BuscarPorEstadio",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"Jogos",
-								"BuscarPorEstadio",
-								"Maracana"
+								"BuscarPorEstadio"
 							]
 						}
 					},
@@ -253,18 +324,29 @@
 				},
 				{
 					"name": "Jogos.BuscarPorSelecao",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\" : \"Chile\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{URL}}/Jogos/BuscarPorSelecao/Alemanha",
+							"raw": "{{URL}}/Jogos/BuscarPorSelecao",
 							"host": [
 								"{{URL}}"
 							],
 							"path": [
 								"Jogos",
-								"BuscarPorSelecao",
-								"Alemanha"
+								"BuscarPorSelecao"
 							]
 						}
 					},
@@ -293,7 +375,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0a193af1-ec3f-410e-b78b-3bc13cb0077f",
+						"id": "a14e7068-6070-4c77-bb05-b36f9e4b68d5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -303,7 +385,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fb78067d-c3a0-4543-a275-830bceea0f92",
+						"id": "ac0d29a6-9f33-45a9-bfb0-cd91a17e6a0c",
 						"type": "text/javascript",
 						"exec": [
 							""
