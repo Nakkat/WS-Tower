@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,19 +14,24 @@ namespace WSTower.API.Repository
     {
         WSTowerContext _context = new WSTowerContext();
 
+        public List<DateTime> ListaDeDatas()
+        {
+            List<DateTime> datas = new List<DateTime>();
+            List<Jogo> jogos = ListarJogos();
+            foreach (var jogo in jogos)
+            {
+                datas.Add(Convert.ToDateTime(jogo.Data).Date); 
+            }
+            return datas.Distinct().ToList();
+        }
+
         public List<Jogo> ListarJogos()
         {
-             return _context.Jogo.Include(sc => sc.SelecaoCasaNavigation).Include(sv => sv.SelecaoVisitanteNavigation).ToList();
+             return _context.Jogo.OrderBy(j => j.Data).Include(sc => sc.SelecaoCasaNavigation).Include(sv => sv.SelecaoVisitanteNavigation).ToList();
         }
-
-        public List<Jogo> ListarPorOrdemDeData()
-        {
-            return _context.Jogo.OrderBy(j => j.Data).ToList();
-        }
-
         public List<Jogo> ListarPorData(DateTime data)
         {
-            return _context.Jogo.ToList().FindAll(j => j.Data == data);
+            return _context.Jogo.ToList().FindAll(j => Convert.ToDateTime(j.Data).Date == data);
         }
 
         public List<Jogo> ListarPorEstadio(string estadio)
@@ -35,22 +41,7 @@ namespace WSTower.API.Repository
 
         public List<Jogo> ListarPorSelecao(string selecao)
         {
-            return _context.Jogo.ToList().FindAll(j => j.SelecaoCasaNavigation.Nome == selecao
-                                            || j.SelecaoVisitanteNavigation.Nome == selecao);
-        }
-
-        public List<DateTime> ListaDeDatas()
-        {
-            List<DateTime> datas = new List<DateTime>();
-
-            for (int i = 0; i < ListarJogos().Count; i++)
-            {
-                Jogo jogo = new Jogo();
-                DateTime data = jogo.Data.Value;
-                datas.Add(data);
-            }
-
-            return datas;
+            return _context.Jogo.ToList().FindAll(j => j.SelecaoCasaNavigation.Nome == selecao || j.SelecaoVisitanteNavigation.Nome == selecao);
         }
     }
 }

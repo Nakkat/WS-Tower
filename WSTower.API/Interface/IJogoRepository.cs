@@ -10,8 +10,6 @@ namespace WSTower.API.Interface
     {
         public List<Jogo> ListarJogos();
 
-        public List<Jogo> ListarPorOrdemDeData();
-
         public List<Jogo> ListarPorData(DateTime data);
 
         public List<Jogo> ListarPorEstadio(string estadio);

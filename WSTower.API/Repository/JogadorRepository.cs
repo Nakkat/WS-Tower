@@ -21,5 +21,10 @@ namespace WSTower.API.Repository
         {
             return _context.Jogador.OrderBy(j => j.NumeroCamisa).OrderBy(j => j.Posicao).ToList();
         }
+
+        public Selecao ListarJogadoresporSelecao(int IdSelecao)
+        {
+            return _context.Selecao.Include(s => s.Jogador).FirstOrDefault(s => s.Id == IdSelecao);
+        }
     }
 }

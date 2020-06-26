@@ -11,5 +11,7 @@ namespace WSTower.API.Interface
         public List<Jogador> ListarJogadores();
 
         public List<Jogador> ListarJogadoresOrdenados();
+
+        public Selecao ListarJogadoresporSelecao(int IdSelecao);
     }
 }

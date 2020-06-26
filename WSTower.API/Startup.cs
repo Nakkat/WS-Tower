@@ -22,19 +22,12 @@ namespace WSTower.API
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
-
-            
-            //.AddJsonOptions(options =>
-            // {
-            //     // Ignora valores nulos ao fazer junções nas consultas
-            //     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-            //     // Ignora os loopings nas consultas
-            //     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            // });
-
-
-
+            services.AddControllers()
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                    options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Senai.Peoples.WebApi", Version = "v1" });
@@ -44,7 +37,6 @@ namespace WSTower.API
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath);
             });
-
 
             services
                 // Define a forma de autenticação
@@ -69,7 +61,7 @@ namespace WSTower.API
                         ValidateLifetime = true,
 
                         // Forma de criptografia
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("peoples-chave-autenticacao")),
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("WSTower-chave-autenticacao")),
 
                         // Tempo de expiração do token
                         ClockSkew = TimeSpan.FromMinutes(30),
@@ -86,12 +78,6 @@ namespace WSTower.API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
@@ -100,21 +86,20 @@ namespace WSTower.API
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Senai.Peoples.WebApi");
                 c.RoutePrefix = string.Empty;
-                if (env.IsDevelopment())
-                {
-                    app.UseDeveloperExceptionPage();
-                }
-
-                app.UseRouting();
-
-                app.UseEndpoints(endpoints =>
-                {
-                    endpoints.MapControllers();
-                });
             });
-
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
             // Habilita o uso de autenticação
             app.UseAuthentication();
+
+            app.UseRouting();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
     }
 }

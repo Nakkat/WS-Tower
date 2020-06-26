@@ -27,11 +27,11 @@ namespace WSTower.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Login(LoginViewModel Dadoslogin)
+        public IActionResult Login(LoginViewModel loginViewModel)
         {
-            Usuario dados = _usuarioRepository.Login(Dadoslogin);
+            Usuario usuario = _usuarioRepository.Login(loginViewModel);
 
-            if (dados == null)
+            if (usuario == null)
             {
                 return NotFound("E-mail/Apelido ou senha inválidos");
             }
@@ -39,9 +39,9 @@ namespace WSTower.API.Controllers
             {
                 var claims = new[]
                 {
-                new Claim(JwtRegisteredClaimNames.Email, dados.Email),
-                new Claim(JwtRegisteredClaimNames.UniqueName, dados.Apelido),
-                new Claim(JwtRegisteredClaimNames.Jti, dados.Id.ToString()),
+                new Claim(JwtRegisteredClaimNames.Email, usuario.Email),
+                new Claim(JwtRegisteredClaimNames.UniqueName, usuario.Apelido),
+                new Claim(JwtRegisteredClaimNames.Jti, usuario.Id.ToString()),
                 };
 
                 // Define a chave de acesso ao token

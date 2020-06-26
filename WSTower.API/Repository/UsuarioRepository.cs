@@ -30,18 +30,9 @@ namespace WSTower.API.Repository
             return _context.Usuario.ToList();
         }
 
-        public Usuario Login(LoginViewModel login)
+        public Usuario Login(LoginViewModel loginViewModel)
         {
-            Usuario usuarioBuscado = _context.Usuario.FirstOrDefault(u => u.Email == login.Usuario && u.Senha == login.Senha || u.Apelido == login.Usuario && u.Senha == login.Senha);
-
-            if (usuarioBuscado != null)
-            {
-                // Retorna o usuário encontrado
-                return usuarioBuscado;
-            }
-
-            // Caso não seja encontrado, retorna nulo
-            return null;
+             return _context.Usuario.FirstOrDefault(u => loginViewModel.Usuario == u.Email  || loginViewModel.Usuario == u.Apelido && loginViewModel.Senha == u.Senha);
         }
     }
 }

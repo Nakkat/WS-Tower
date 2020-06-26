@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8bdddc65-0724-4f77-83e6-dfe1f8bed161",
+		"_postman_id": "1175450d-ab7f-4ae9-bd0c-3f3b8a793d2e",
 		"name": "WS Tower",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -72,110 +72,6 @@
 			"name": "Jogos",
 			"item": [
 				{
-					"name": "Buscar jogos",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/Jogos",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"Jogos"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Jogadores",
-			"item": [
-				{
-					"name": "Buscar jogadores",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/jogadores",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"jogadores"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Buscar jogadores ordenados por camisa e posição",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{URL}}/jogadores/ordem",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"jogadores",
-								"ordem"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Selecoes",
-			"item": [],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Login",
-			"item": [
-				{
-					"name": "Login",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n        \"email\": \"a@.com\",\r\n        \"senha\": \"cde\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{URL}}/login",
-							"host": [
-								"{{URL}}"
-							],
-							"path": [
-								"login"
-							]
-						}
-					},
-					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Tela Principal",
-			"item": [
-				{
 					"name": "Listar jogos por ordem de data",
 					"request": {
 						"method": "GET",
@@ -244,6 +140,109 @@
 								"Principal",
 								"BuscarPorSelecao",
 								"Alemanha"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Datas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jogadores",
+			"item": [
+				{
+					"name": "Buscar jogadores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/jogadores",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jogadores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar jogadores ordenados por camisa e posição",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/jogadores/ordem",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"jogadores",
+								"ordem"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Buscar jogadores por seleção",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Selecoes",
+			"item": [],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"email\": \"a@.com\",\r\n        \"senha\": \"cde\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"login"
 							]
 						}
 					},

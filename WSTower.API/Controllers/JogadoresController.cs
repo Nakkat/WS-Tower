@@ -38,5 +38,10 @@ namespace WSTower.API.Controllers
         {
             return Ok(_jogadorRepository.ListarJogadoresOrdenados());
         }
+        [HttpGet("Selecao/{id}")]
+        public IActionResult ListarJogadoresPorSelecao(int id)
+        {
+            return Ok(_jogadorRepository.ListarJogadoresporSelecao(id));
+        }
     }
 }
