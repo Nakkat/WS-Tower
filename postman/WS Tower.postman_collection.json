@@ -75,6 +75,17 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Editar",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
