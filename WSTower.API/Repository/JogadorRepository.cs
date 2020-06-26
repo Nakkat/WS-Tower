@@ -29,11 +29,13 @@ namespace WSTower.API.Repository
 
         public Selecao ListarJogadoresporSelecao(int IdSelecao)
         {
-            return _context.Selecao.Select(s => new Selecao()
-            {
-                Id = s.Id,
-                Jogador  = s.Jogador
-            }).Include(s => s.Jogador).FirstOrDefault(s => s.Id == IdSelecao);
+            return _context.Selecao.Include(s => s.Jogador).FirstOrDefault(s => s.Id == IdSelecao);
+
+            //return _context.Selecao.Select(s => new Selecao()
+            //{
+            //    Id = s.Id,
+            //    Jogador  = s.Jogador
+            //}).Include(s => s.Jogador).FirstOrDefault(s => s.Id == IdSelecao);
         }
     }
 }
